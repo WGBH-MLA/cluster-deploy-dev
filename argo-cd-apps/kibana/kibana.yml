@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-org/your-repo.git
-    path: path/to/kibana
+    repoURL: https://github.com/WGBH-MLA/cluster-deploy-dev.git
+    path: kibans
     targetRevision: HEAD
     helm:
       valueFiles:
