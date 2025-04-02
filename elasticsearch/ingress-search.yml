@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+ name: kibana-ingress-production
+ annotations:
+   cert-manager.io/cluster-issuer: letsencrypt-production
+spec:
+  ingressClassName: traefik
+  tls:
+   - hosts:
+       - search.wgbh-mla.org
+     secretName: kibana-tls-production
+  rules:
+   - host: search.wgbh-mla.org
+     http:
+       paths:
+         - path: /
+           pathType: Prefix
+           backend:
+             service:
+               name: quickstart-kb-http
+               port:
+                 number: 5601
