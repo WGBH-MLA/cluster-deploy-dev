@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/WGBH-MLA/cluster-deploy-dev.git
     targetRevision: main  # Change this if using a different branch
-    path: argo-cd/applications/eck-operator  # Adjust based on where values.yaml is stored
+    path: argo-cd-apps/eck-operator  # Adjust based on where values.yaml is stored
     helm:
       valueFiles:
         - values.yaml
