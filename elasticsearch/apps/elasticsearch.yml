@@ -7,6 +7,16 @@ spec:
   version: 8.5.1
   nodeSets:
     - name: default
-      count: 3
+      count: 1
       config:
         node.roles: ["master", "data", "ingest"]
+        node.store.allow_mmap: false
+      volumeClaimTemplates:
+        - metadata:
+            name: elasticsearch-data
+          spec:
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 1Gi
+            storageClassName: efs-sc
