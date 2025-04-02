@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: elasticsearch-demo
+  name: elastic-operator
   namespace: argo-cd
 spec:
   project: default
   source:
-    repoURL: https://github.com/WGBH-MLA/cluster-deploy-dev.git
-    path: elasticsearch
-    targetRevision: HEAD
+    repoURL: https://helm.elastic.co
+    chart: eck-operator
+    targetRevision: 2.9.0
     helm:
       valueFiles:
         - values.yaml
@@ -21,9 +21,3 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-      # Set a sync wave to ensure this deploys first
-      - ApplyOutOfSyncOnly=false
-  # Add optional annotation for sync ordering
-  metadata:
-    annotations:
-      argocd.argoproj.io/sync-wave: "1"
