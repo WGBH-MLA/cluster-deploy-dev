@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/WGBH-MLA/cluster-deploy-dev.git
-    targetRevision: main
+    targetRevision: test-new-apps
     path: elasticsearch/apps  # Directory containing all sub-applications
   destination:
     server: https://kubernetes.default.svc
