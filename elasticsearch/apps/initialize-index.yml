@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: initialize-index
+  namespace: elastic-system
   labels:
     app: initialize-index
 spec:
