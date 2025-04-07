@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: initialize-index
+  labels:
+    app: initialize-index
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: initialize-index
+  template:
+    metadata:
+      labels:
+        app: initialize-index
+    spec:
+      containers:
+        - name: python-container
+          image: python:latest
+          command: ["sleep", "infinity"]
