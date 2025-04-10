@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: es-demo
+  namespace: elastic-system
+  labels:
+    app: es-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: es-demo
+  template:
+    metadata:
+      labels:
+        app: es-demo
+    spec:
+      containers:
+        - name: es-demo
+          image: ghcr.io/wgbh-mla/es_demo:main
+          command: ["sleep", "infinity"]
